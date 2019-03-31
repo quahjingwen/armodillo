@@ -7,9 +7,8 @@
       <v-spacer></v-spacer>
     </v-toolbar>
     <v-navigation-drawer v-model="drawer" fixed app>
-      <vs-avatar  size="100px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
-              <h4>Teacher Tan
-        </h4>
+      <vs-avatar size="100px" src="./assets/ck.png"/>
+      <h4>Teacher Tan</h4>
       <v-list dense class="pt-0">
         <v-list-tile v-for="link in links" :key="link" :to="{path: '/' + link.route}">
           <v-list-tile-action>
@@ -20,7 +19,6 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-
     </v-navigation-drawer>
     <v-navigation-drawer v-model="left" temporary fixed></v-navigation-drawer>
 
@@ -41,10 +39,10 @@ export default {
     left: false,
     data: null,
     links: [
-      { title: "Profile" , route: "Profile" },
-      { title: "Modules" , route:"Modules"},
-      { title: "Top Rated Electives", route:"TopRatedElectives" },
-      { title: "Recommendation" , route: "choose" }
+      { title: "Profile", route: "Profile" },
+      { title: "Modules", route: "searchModules" },
+      { title: "Top Rated Electives", route: "TopRatedElectives" },
+      { title: "Recommendation", route: "choose" }
     ]
   }),
   props: {

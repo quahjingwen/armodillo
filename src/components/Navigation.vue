@@ -18,16 +18,16 @@ export default {
   },
   methods: {
     goProfile: function() {
-      this.$router.push({ name: "/profile" });
+      this.$router.push({ name: "/Profile" });
     },
     goModules: function() {
-      this.$router.push({ name: "/modules" });
+      this.$router.push({ name: "/Modules" });
     },
     goTopRatedElectives: function() {
       this.$router.push({ name: "/topRatedElectives" });
     },
     goRecommendations: function() {
-      this.$router.push({ name: "/Recommendation  " });
+      this.$router.push({ name: "/Recommendation" });
     }
   }
 };

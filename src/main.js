@@ -2,14 +2,8 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import Vuetify from 'vuetify';
-import Vuesax from 'vuesax';
 
-import 'vuesax/dist/vuesax.css' //Vuesax styles
-Vue.use(Vuesax)
-
-
-
-import VueFire from "vuefire";
+import * as VueFire from "vuefire";
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)

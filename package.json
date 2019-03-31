@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@vuefire/vuefire": "0.0.9",
     "bootstrap": "^4.3.1",
     "bootstrap-vue": "^2.0.0-rc.15",
     "chart.js": "^2.8.0",
@@ -22,7 +23,7 @@
     "vue-chartjs": "^3.4.2",
     "vue-chartkick": "^0.5.0",
     "vue-router": "^3.0.2",
-    "vuefire": "^1.4.5",
+    "vuefire": "^2.0.0-alpha.21",
     "vuesax": "^3.8.55",
     "vuetify": "^1.5.7"
   },

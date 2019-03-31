@@ -26,26 +26,25 @@
           <br>
         </div>
         <b-list-group-item class="list" v-for="mod in mods" :key="mod.id">
-          <a href="#">{{ mod.code }}</a>
+          <a href="#" @click="getModules(mod.code)">{{ mod.code }}</a>
         </b-list-group-item>
       </div>
       <div class="statistics">
         <div class="statistics-header">
-          <img class="statistics-img" src="../assets/pie-chart.png" height="100px">
           <h3 class="statistics-text">
-            <strong>Statistics</strong>
+            <strong>Brief Module Description</strong>
           </h3>
         </div>
-        <p>Here are the statistics</p>
-        <p v-for="info in modInfo" :key="info.id">{{modInfo.Department}}</p>
+        <p> <strong>{{recoMods.title}} </strong></p>
+        <p> Department: {{recoMods.Department}} </p>
+        <p> {{recoMods.Description}} </p>
       </div>
     </div>
     <br>
-
   </div>
 </template>
 <script>
-import modRef from "../firebase.js"
+import { db } from "../firebase.js";
 
 export default {
   name: "Recommendation",
@@ -53,28 +52,71 @@ export default {
     return {
       labels: ["React", "Vanilla JS", "JQuery", "VueJS"],
       dataset: [5, 10, 15, 25],
-      recoMods: {
-        code: "BT2101",
-        title: "Decision making visualisation and tools"
-      },
+      recoMods: 
+        {title: "", Department:"", MC:"", Description:"",ExamDate:""}
+      ,
       mods: [
-        { code: "CS2010", code2: "IS3103(48%)" },
-        { code: "BT2102", code2: "BT3102(44%)" },
-        { code: "ST2334", code2: "BT3103(42%)" },
-        { code: "IS2101", code2: "IS4302(33%)" },
+        { code: "CS2010"},
+        { code: "BT2102"},
+        { code: "ST2334"},
+        { code: "IS2101" },
         { code: "IS3103" }
-      ]
+      ],
+      
     };
-  },
-    firebase: function () {
-    return {
-      modInfo: modRef
-    }
   },
   methods: {
     signOut: function() {
       //console.log("pushed")
       this.$router.push({ name: "Login" });
+    },
+    async getData() {
+      this.data = await db
+        .ref("/mods_info/data")
+        .once("value")
+        .then(function(snapshot) {
+          // takes a snapshot of the data at that time
+          var d = snapshot.val();
+          // console.log("whewww")
+          /*eslint-disable */
+          console.log(d);
+          return d;
+        });
+    },
+    findMod: function(code) {
+      /*eslint-disable */
+      console.log(code);
+    },
+    async getModules(code) {
+      await this.getData();
+      // check if the code did get passed into the function
+      console.log(String(code));
+      // datakeys is the index of each child node in the mod parent node
+      var datakeys = Object.keys(this.data);
+      console.log(datakeys);
+      // here i am testing for the first child and seeing if it produces the module code
+      console.log(this.data[datakeys[0]]["ModuleCode"]);
+      //var modules = [];
+      //console.log(modules);
+      for (var i = 0; i < this.data.length; i++) {
+        var key = datakeys[i];
+        //console.log("key: " + key);
+        if (this.data[key]["ModuleCode"]==(String(code))) {
+          console.log(this.data[key]);
+          console.log(this.data[key].Department);
+          //var modinfo = this.data[key].Department
+          this.recoMods.Department = this.data[key].Department;
+          this.recoMods.title = code;
+          console.log(this.recoMods.title);
+          this. recoMods.Description = this.data[key].ModuleDescription
+          console.log(this.recoMods.Description);
+          console.log(this.data[key].History[0].ExamDate)
+
+          //this.recoMods[0] = this.data[key];
+        }
+      }
+      console.log(this.recoMods.Department);
+      return this.recoMods;
     }
   }
 };
@@ -104,7 +146,6 @@ export default {
   border-color: rgb(148, 148, 148);
   display: inline-block;
   vertical-align: top;
-  float: left;
   width: 49%;
   height: 460px;
 }
@@ -114,7 +155,6 @@ export default {
   border-color: rgb(148, 148, 148);
   display: inline-block;
   vertical-align: top;
-  float: center;
   text-align: center;
   width: 49%;
   height: 460px;
@@ -135,5 +175,4 @@ export default {
 .header-text {
   display: inline-block;
 }
-
 </style>

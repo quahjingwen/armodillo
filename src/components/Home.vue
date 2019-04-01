@@ -6,7 +6,7 @@
       </h2>
       <br>
       <h3>Search for a module to get more information!</h3>
-      <input type="text" placeholder="Module Code Eg. BT2101">
+      <input type="text" v-model="moduleCode" placeholder="Module Code Eg. BT2101">
       <button @click="goMod">Go</button>
     </div>
     <br>
@@ -25,12 +25,13 @@
 export default {
   name: "Home",
   data() {
+    moduleCode: null;
     return {};
   },
   methods: {
     goMod: function() {
       //console.log("pushed")
-      this.$router.push({ name: "Modules" });
+      this.$router.push({ name: "Modules" , params: { id: this.moduleCode}});
     },
     goReco: function() {
       this.$router.push({ name: "Recommendation" });

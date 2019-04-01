@@ -2,13 +2,13 @@
 <template>
   <v-app id="inspire">
     <v-toolbar color="black" dark fixed app clipped-right>
-      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>NUS Companion</v-toolbar-title>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"><v-img :src="require('../assets/ArmodilloLogo.png')"></v-img> </v-toolbar-side-icon>
+      <v-toolbar-title>Armodillo</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
     <v-navigation-drawer v-model="drawer" fixed app>
-      <vs-avatar size="100px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
-      <h4>Teacher Tan</h4>
+      <vs-avatar size="100px" :src="require('@/assets/ck.png')"/>
+      <h4>Kang 师父（Shifu)</h4>
       <v-list dense class="pt-0">
         <v-list-tile v-for="link in links" :key="link" :to="{path: '/' + link.route}">
           <v-list-tile-action>
@@ -37,6 +37,10 @@ export default {
     drawer: null,
     right: false,
     left: false,
+    images: {
+      logo: require('@/assets/ArmodilloLogo.png'),
+      ck: require('@/assets/ck.png')
+    },
     data: null,
     links: [
       { title: "Profile", route: "Profile" },

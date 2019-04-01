@@ -4,7 +4,7 @@
     <input type= "text" v-model="search" placeholder="search modules"/>
     <div v-for="module in filteredModules" :key="module.id" class="single-module">
       <!--  <router-link :to="'/module/'+module['.key']"> <h2>{{ module[".key"] }} </h2> </router-link> -->
-      <router-link :to="'/module/'+module.ModuleCode"> <h2>{{ module.ModuleCode }} </h2> </router-link>
+      <router-link :to="'/Module/'+module.ModuleCode"> <h2>{{ module.ModuleCode }} </h2> </router-link>
         <h2>{{module.ModuleTitle}}</h2>
         <article>
         <table>
@@ -54,22 +54,23 @@ export default {
       test: 123
     }
   },
-  method:{
+  methods:{
         async getData(){
-    this.data = await db
-      .ref("/shannon/data/-Lb2LdxrwgAn5CahJcLc")
-      .once("value")
+    var data = await modsInfo.once("value")
       .then(function(snapshot) {
         var d = snapshot.val();
         // console.log("whewww")
         //console.log(d)
         return d;
-      });  
+      } );  
+    console.log(data);
     }
   },
   computed: {
     filteredModules: function () {
-      // console.log(this.modules)
+      // console.log(modsInfo)
+      
+      // this.getData();
       return this.modules.filter((module) => {
         // return module['.key'].match(this.search.toUpperCase())
         return module.ModuleCode.match(this.search.toUpperCase())

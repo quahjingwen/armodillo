@@ -5,7 +5,6 @@
                 <v-layout row>
                 <v-flex xs10>
                     <v-card v-if="show_1">
-                        <v-divider></v-divider>
                             <v-toolbar extended flat height="25px" dark color = 'green'>
                                 <v-toolbar-title class="white--text">><b><h3>Pros:</h3></b></v-toolbar-title>
                             </v-toolbar>
@@ -78,7 +77,7 @@
 <script>
 export default{
     name: "ModuleComparator",
-    props:['show_1','module1_properties','module2_properties','module1_pros','module2_pros','module1_cons', 'module2_cons'],
+    props: ['show_1','module1_properties','module2_properties','module1_pros','module2_pros','module1_cons', 'module2_cons'],
     data(){
         return{
             // module1: null,
@@ -90,7 +89,7 @@ export default{
     methods: {
         compare_Mod(){
             // var stats = ['std','SU','webcast','rating']
-            var stats = ['std','SU','webcast','rating']
+            // var stats = ['std','SU','webcast','rating']
             var stats = ['std','SU','webcast']
             for (var i=0;i<stats.length;i++){
                 var key = [stats[i]];
@@ -106,7 +105,9 @@ export default{
             var labels = Object.key(dict);
             for(var j = 0; j<labels.length; j++){
                 var key_fp = labels[j];
-                if(dict[key_fp]>5){
+                var total = module1_properties["vote_size"]
+                console.log(total/13);
+                if(dict[key_fp]>total/13){
                     module1_pros[key_fp]=true;
                 }
             }

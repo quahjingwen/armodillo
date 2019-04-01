@@ -9,7 +9,7 @@
     </p>
 
     <v-container grid-list-md text-xs>
-      <v-layout row wrap>
+      <v-layout row wrap class="justify-center" >
         <v-flex xs3 sm6 md3>
           <label class="label">
             <b>Programme Electives:</b>
@@ -56,7 +56,7 @@
         </b-list-group-item>
       </div>
       <h3>
-        <b>Recommended Programme Elective(s):</b>
+        <b>Recommended General Elective(s):</b>
       </h3>
       <div>
         <b-list-group-item class="list" v-for="module in filtered_mods_GE" :key="module.id">
@@ -65,7 +65,7 @@
       </div>
 
       <h3>
-        <b>Recommended Programme Elective(s):</b>
+        <b>Recommended Unrestricted Elective(s):</b>
       </h3>
       <div>
         <b-list-group-item class="list" v-for="module in filtered_mods_UE" :key="module.id">

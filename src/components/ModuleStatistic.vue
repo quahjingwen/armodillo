@@ -1,11 +1,10 @@
 <template>
-  <v-app>
-      <v-content>  
   <div id = "ModuleStatistic">
     <!-- {{module1}} -->
     <!-- <input v-model="selected_mod" placeholder="e.g. BT3103"> <br>
     <v-btn v-on:click="show_final_marks">Display Statistics</v-btn> -->
     <!-- <test v-bind:module1='module1'></test> -->
+    <br><br><br>
     <strong>Finals Marks Distribution</strong>
     <line-chart
       v-if="show_1"
@@ -37,11 +36,10 @@
     <bar-chart :data="bar_data_1"></bar-chart>
     <br><br>
   </div>
-   </v-content>
-    </v-app>
+
 </template>
 <style scoped>
-/* h3 {
+h3 {
   margin: 40px 10px 10px;
 }
 ul {
@@ -54,7 +52,7 @@ li {
 }
 a {
   color: #42b983;
-} */
+}
 </style>
 <script>
 //import Chart from "./components/Chart.vue";

@@ -428,6 +428,7 @@ export default {
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
+  text-align: left;
 }
 
 .blue-column {

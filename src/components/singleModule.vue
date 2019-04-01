@@ -21,7 +21,7 @@
             <v-btn v-if="component2" v-on:click="displayModule2">GO</v-btn>
           </v-flex>
           </v-layout>
-          <v-layout row>
+          <v-layout row class="justify-center">
             
             
             <v-flex xs6>
@@ -32,7 +32,6 @@
                   <v-toolbar extended flat height="25px" dark color = 'indigo'>
                       <v-toolbar-title class="white--text">><b><h3>{{module1}}</h3></b></v-toolbar-title>
                   </v-toolbar>
-                  <v-divider></v-divider>
               <component 
               v-bind:is ="component" 
               v-bind:histData_1="histData[0]" 
@@ -88,7 +87,6 @@
         </v-container>
       </v-content>
     </v-app>
-      <button v-if="component2==null" v-on:click="component2='module-statistic2'">I want to compare against another module</button>
       <!-- <button v-on:click="component3 = 'module-comparator'">What should I take?</button> -->
     
   </div>
@@ -355,8 +353,8 @@ export default {
             var val_1 = this.module1_properties[key];
             var val_2 = this.module2_properties[key];
             console.log("compareMods")
-            console.log(val_1)
-            console.log(val_2)
+            // console.log(val_1)
+            // console.log(val_2)
             if(val_1 > val_2){
                 this.module1_pros[key]=val_1;
             }else if(val_1==val_2 && val_1>0){
@@ -384,10 +382,10 @@ export default {
         for(var j = 0; j<labels.length; j++){
             var key_fp = labels[j];
             var pct = dict[key_fp]/total1;
-            console.log("num")
-            console.log(dict[key_fp]);
-            console.log("mean");
-            console.log( (total1/13) );
+            // console.log("num")
+            // console.log(dict[key_fp]);
+            // console.log("mean");
+            // console.log( (total1/13) );
             if(dict[key_fp]>(total1/13)){
                 
                 this.module1_pros[key_fp]=true;
@@ -398,10 +396,10 @@ export default {
         labels = Object.keys(dict);
         for(j = 0; j<labels.length; j++){
             key_fp = labels[j];
-            console.log("num")
-            console.log(dict[key_fp]);
-            console.log("mean");
-            console.log( (total1/13) );
+            // console.log("num")
+            // console.log(dict[key_fp]);
+            // console.log("mean");
+            // console.log( (total1/13) );
             if(dict[key_fp]>total1/13){
                 this.module1_cons[key_fp]=true;
             }
@@ -410,10 +408,10 @@ export default {
         labels = Object.keys(dict);
         for(j = 0; j<labels.length; j++){
             key_fp = labels[j];
-            console.log("num")
-            console.log(dict[key_fp]);
-            console.log("mean");
-            console.log( (total2/13) );
+            // console.log("num")
+            // console.log(dict[key_fp]);
+            // console.log("mean");
+            // console.log( (total2/13) );
             if(dict[key_fp]>total2/13){
                 this.module2_pros[key_fp]=true;
             }
@@ -422,10 +420,10 @@ export default {
         labels = Object.keys(dict);
         for(j = 0; j<labels.length; j++){
             key_fp = labels[j];
-            console.log("num")
-            console.log(dict[key_fp]);
-            console.log("mean");
-            console.log( (total2/13) );
+            // console.log("num")
+            // console.log(dict[key_fp]);
+            // console.log("mean");
+            // console.log( (total2/13) );
             if(dict[key_fp]>total2/13){
                 this.module2_cons[key_fp]=true;
             }

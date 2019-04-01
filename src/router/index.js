@@ -1,21 +1,17 @@
 import Vue from "vue";
 import Router from "vue-router";
-import Login from "@/components/Login.vue";
+
 import Home from "@/components/Home.vue";
 import Recommendation from "../components/Recommendation.vue";
 import choose from "../components/choose.vue"
 import searchModules from "../components/searchModules.vue"
 import Profile from "../components/ProfilePage.vue"
+import Choices from "../components/choices.vue"
 
 Vue.use(Router);
 
 export default new Router({
     routes: [
-        {
-            path: "/Login",
-            name: "Login",
-            component: Login
-        },
         {
             path: "/Recommendation",
             name: "Recommendation",
@@ -37,9 +33,14 @@ export default new Router({
             component: Profile
         },
         {
-            path:"/searchModules",
+            path:"/Modules",
             name: "searchModules",
             component: searchModules
+        },
+        {
+            path:"/Choices",
+            name:"Choices",
+            component: Choices
         }
 
     ]

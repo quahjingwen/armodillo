@@ -1,13 +1,13 @@
 /* eslint-disable */
 <template>
   <v-app id="inspire">
-    <v-toolbar color="blue-grey" dark fixed app clipped-right>
+    <v-toolbar color="black" dark fixed app clipped-right>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title>NUS Companion</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
     <v-navigation-drawer v-model="drawer" fixed app>
-      <vs-avatar size="100px" src="./assets/ck.png"/>
+      <vs-avatar size="100px" src="https://randomuser.me/api/portraits/men/85.jpg"/>
       <h4>Teacher Tan</h4>
       <v-list dense class="pt-0">
         <v-list-tile v-for="link in links" :key="link" :to="{path: '/' + link.route}">
@@ -22,10 +22,10 @@
     </v-navigation-drawer>
     <v-navigation-drawer v-model="left" temporary fixed></v-navigation-drawer>
 
-    <v-footer color="blue-grey" class="white--text" app>
+    <v-footer color="black" class="white--text" app>
       <span>NUS Companion</span>
       <v-spacer></v-spacer>
-      <span>&copy; 2017</span>
+      <span>&copy; 2019</span>
     </v-footer>
   </v-app>
 </template>
@@ -40,7 +40,7 @@ export default {
     data: null,
     links: [
       { title: "Profile", route: "Profile" },
-      { title: "Modules", route: "searchModules" },
+      { title: "Modules", route: "Modules" },
       { title: "Top Rated Electives", route: "TopRatedElectives" },
       { title: "Recommendation", route: "choose" }
     ]

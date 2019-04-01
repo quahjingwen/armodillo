@@ -2,8 +2,7 @@
   <div>
     <div class="header">
       <h3>Recommendation of Modules</h3>
-      <button class="button-right" @cick="signOut">Sign Out</button>
-    </div>
+    </div><br>
     <br>
     <div class="display">
       <div class="analysis">
@@ -37,7 +36,9 @@
         </div>
         <p> <strong>{{recoMods.title}} </strong></p>
         <p> Department: {{recoMods.Department}} </p>
+        <p> Module Credit: {{recoMods.MC}}</p>
         <p> {{recoMods.Description}} </p>
+        
       </div>
     </div>
     <br>
@@ -111,6 +112,7 @@ export default {
           this. recoMods.Description = this.data[key].ModuleDescription
           console.log(this.recoMods.Description);
           console.log(this.data[key].History[0].ExamDate)
+          this.recoMods.MC = this.data[key].ModuleCredit
 
           //this.recoMods[0] = this.data[key];
         }
@@ -147,7 +149,7 @@ export default {
   display: inline-block;
   vertical-align: top;
   width: 49%;
-  height: 460px;
+  height: 650px;
 }
 
 .statistics {
@@ -157,7 +159,7 @@ export default {
   vertical-align: top;
   text-align: center;
   width: 49%;
-  height: 460px;
+  height: 650px;
 }
 
 .statstics-text {

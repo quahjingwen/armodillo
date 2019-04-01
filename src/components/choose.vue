@@ -22,7 +22,7 @@ export default {
       this.$router.push({ name: "Recommendation" });
     },
     goList: function(){
-      this.$router.push({ name: "List" });
+      this.$router.push({ name: "Choices" });
     }
   }
 };
@@ -38,9 +38,15 @@ export default {
 .choose{
   display:inline-block;
   margin: 30px;
+  border: solid;
+    border-color: darkgray;
+  padding: 5px;
 }
 .choose2{
   display: inline-block;
   margin: 30px;
+  border: solid;
+  border-color: darkgray;
+  padding: 5px;
 }
 </style>

@@ -10,14 +10,14 @@
       <button @click="goMod">Go</button>
     </div>
     <br>
-    <div class="login">
+    <!--<div class="login">
       <h3>Sign in to get personalised service!</h3>
       <input type="text" placeholder="Email">
       <br>
       <input type="password" placeholder="password">
       <br>
       <button @click="goReco">Log In</button>
-    </div>
+    </div>-->
   </div>
 </template>
 

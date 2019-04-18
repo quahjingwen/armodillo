@@ -1,3 +1,3 @@
-module.exports={
-    publichPath: '/armodillo/'
+module.exports = {
+    publicPath: '/armodillo/'
 }
